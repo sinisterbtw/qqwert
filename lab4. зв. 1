@@ -1,0 +1,16 @@
+import math
+
+def f(x):
+    if x < 0:
+        raise ValueError("Функція не визначена при x < 0 (через x^sqrt(2x))")
+    denom = math.exp(0.7 * x) + 4 ** (3.3 * x + 1)
+    return (math.cos(x) + math.log(abs(x) + 1)) / denom - 0.9 * x ** math.sqrt(2 * x)
+
+
+if __name__ == "__main__":
+    x = float(input("Введіть x: "))
+    try:
+        result = f(x)
+        print(f"f(x) = {result:.6f}")
+    except ValueError as e:
+        print(e)
