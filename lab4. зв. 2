@@ -1,0 +1,21 @@
+import math
+
+def r(x, y, z):
+    if y == 0:
+        raise ValueError("Вираз не визначений: y = 0 (ln|y| не існує)")
+    expr = 0.7 * math.cos(x) + math.log(abs(y))
+    # корінь 5-го степеня з урахуванням знаку (парний/непарний корінь від'ємного числа)
+    if expr >= 0:
+        root5 = expr ** (1 / 5)
+    else:
+        root5 = -(abs(expr) ** (1 / 5))
+    return root5 + math.exp(z + x)
+
+
+if __name__ == "__main__":
+    x, y, z = map(float, input("Введіть x, y, z через пробіл: ").split())
+    try:
+        result = r(x, y, z)
+        print(f"R = {result:.6f}")
+    except ValueError as e:
+        print(e)
