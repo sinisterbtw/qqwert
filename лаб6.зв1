@@ -1,0 +1,21 @@
+import math
+
+a = float(input("a: "))
+b = float(input("b: "))
+h = float(input("h: "))
+
+v = []
+n = int(round((b - a) / h))
+for i in range(n + 1):
+    x = a + i * h
+    v.append(math.cos(x) / (1 + abs(math.sin(x))))
+
+for e in v:
+    print(e)
+
+mx, mn = max(v), min(v)
+print(mx, mn)
+
+for e in v:
+    if mn < e < mx:
+        print(e)
