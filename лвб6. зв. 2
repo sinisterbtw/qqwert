@@ -1,0 +1,14 @@
+import math
+
+def f(x):
+    return math.cos(x) / (1 + abs(math.sin(x)))
+
+a = float(input("Введіть a: "))
+b = float(input("Введіть b: "))
+h = float(input("Введіть h: "))
+
+print("Таблиця значень функції:")
+x = a
+while x <= b:
+    print(f"x = {x:.4f}   f(x) = {f(x):.4f}")
+    x += h
