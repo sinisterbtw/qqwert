@@ -1,0 +1,24 @@
+import math
+
+a = float(input("a: "))
+b = float(input("b: "))
+h = float(input("h: "))
+
+v = []
+n = int(round((b - a) / h))
+for i in range(n + 1):
+    x = a + i * h
+    v.append(math.cos(x) / (1 + abs(math.sin(x))))
+
+print("Усі значення функції:")
+for e in v:
+    print(f"{e:.4f}")
+
+mx, mn = max(v), min(v)
+print(f"\nМаксимальне значення: {mx:.4f}")
+print(f"Мінімальне значення: {mn:.4f}")
+
+print("\nЕлементи між мінімальним і максимальним:")
+for e in v:
+    if mn < e < mx:
+        print(f"{e:.4f}")
